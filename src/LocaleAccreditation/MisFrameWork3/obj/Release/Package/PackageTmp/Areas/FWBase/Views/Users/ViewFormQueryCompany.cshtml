@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutViewDiclarge.cshtml";
+}
+<script>
+
+    function cmpDialogDic_DG_init(){
+        $('#cmpDialogDic_DG').datagrid({
+            singleSelect: true,
+            pagination: true,
+            pageNumber: 1,//默认初始页
+            pageSize: 50,//每页显示的记录条数，默认为10 
+            pageList: [30, 50, 100],//可以设置每页记录条数的列
+            rownumbers: true,
+            remoteSort: true,
+            height: "360px",
+            width: "665px",
+            toolbar: "#toolbarDialogDic_DG",
+            @* __TIPS__ *: 以下同表格中显示的每列的配置信息 *@
+            columns: [[
+                { field: 'DM', title: '单位编号', width: 120 },
+                { field: 'MC', title: '单位名称', width: 300 },
+            ]]
+        });
+    }
+</script>
+

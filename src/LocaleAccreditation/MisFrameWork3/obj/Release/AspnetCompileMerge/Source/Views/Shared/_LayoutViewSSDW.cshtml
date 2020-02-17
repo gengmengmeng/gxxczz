@@ -1,0 +1,152 @@
+﻿<div id="cmpDialogDic_DG"></div>
+<div id="toolbarDialogDic_DG">
+    <input id="cmpDialogDic_DG_search" class="easyui-textbox" data-options="prompt:'查询内容'" style="width:550px;">
+    <a href="#" onclick="btnDialogDic_DGSearchEvent()" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:false"></a>
+    <a href="#" onclick="btnsave()" class="easyui-linkbutton" data-options="iconCls:'icon-save'"></a>
+</div>
+<script>
+    function btnDialogDic_DGSearchEvent() {
+        var params = {};
+        var d = $('#dialogDic').dialog("options");
+        console.log("字典地址:" + d.dic_json_url);
+        params.search = $("#cmpDialogDic_DG_search").textbox("getValue");
+        $('#cmpDialogDic_DG').datagrid("load", params);
+    }
+</script>
+@RenderBody()
+<script>
+    $(function () {
+        
+        $("#cmpDialogDic_DG_search").textbox('textbox').keydown(function (e) {
+            if (e.which == 13) {
+                btnDialogDic_DGSearchEvent();
+            }
+        });
+        cmpDialogDic_DG_init();
+        
+        var d = $('#dialogDic').dialog("options");
+        $('#cmpDialogDic_DG').datagrid({
+            url: d.dic_json_url,
+            onBeforeLoad: function (param) {
+                var d = $('#dialogDic').dialog("options");
+                var dBoxOpt = $(d.dic_cmp_name).textbox("options");
+                console.log("onBeforeLoad dBoxOpt=");
+                console.log(dBoxOpt);
+                if (dBoxOpt.parentDic != undefined) {
+                    var pDic = $("#"+dBoxOpt.parentDic);
+                    console.log("===>> parentDic=" + dBoxOpt.parentDic);
+                    var vFilter = "";
+                    if (pDic.hasClass("easyui-dicshort")) {
+                        vFilter = pDic.combogrid("getValue");
+                    }
+                    else {
+                        vFilter = pDic.textbox("getValue");
+                    }
+                    if (vFilter == "")
+                        vFilter = "XXXX****XXXX";//过滤所有信息
+                    param.filter = vFilter;
+                }
+            },
+            onLoadSuccess: function (data) {
+                var c = data.rows.length;
+                for (i = 0; i < c; i++) {
+                    data.rows[i].checked = false;
+                }   
+                var d = $('#dialogDic').dialog("options");              
+                var oldV = $(d.dic_cmp_name).textbox("getValue");
+                var allValue = oldV.split(",");
+                var temp = false;
+                
+                for (i = 0; i < allValue.length; i++) {
+                    for (j = 0; j < c; j++)
+                    {
+                        if (allValue[i] == data.rows[j].DM) {
+                            data.rows[j].checked = true;
+                        }
+                    }
+                    //$.each(data.rows, function (index, val) {//遍历JSON
+                    //    if (val.DM == allValue[i]) {
+                    //        $("#cmpDialogDic_DG").datagrid("selectRow", index);//如果数据行为已选中则选中改行
+                    //    }
+                    //});
+                }
+               $.each(data.rows, function (index, item) {
+                    if (item.checked) {
+                        $('#cmpDialogDic_DG').datagrid('checkRow', index);                           
+                    }                       
+                });
+            }     
+            //onDblClickRow: function (index, record) {
+            //    debugger
+            //    var d = $('#dialogDic').dialog("options");
+            //    var dBox = $(d.dic_cmp_name).textbox("options");
+            //    //dBox.load_dm_from_server = false;
+            //    var oldV = $(d.dic_cmp_name).textbox("getValue");
+            //    var oldT = $(d.dic_cmp_name).textbox("getText");
+            //    console.log("选中字典项,输入【" + d.dic_cmp_name + "】框原值:" + oldV + "-" + oldT + " 新值：" + record.DM + "-" + record.MC);
+            //    if (d.dic_multiple_value == undefined || (!d.dic_multiple_value) || oldV == null || oldV.length == 0) {
+            //        dBox.load_dm_from_server = false;
+            //        $(d.dic_cmp_name).textbox("setValue", record.DM);
+            //        $(d.dic_cmp_name).textbox("setText", record.MC);
+            //        dBox.load_dm_from_server = true;
+            //    }
+            //    else {
+            //        //判断这个值，原来有没有
+            //        var allValue = oldV.split(",");
+            //        for (i = 0; i < allValue.length; i++) {
+            //            if (allValue[i] == record.DM) {
+            //                $.messager.alert({
+            //                    icon: 'warning',
+            //                    title: '提示',
+            //                    msg: record.MC + '【' + record.DM +'】 已存在输入框中'
+            //                });
+            //                return;
+            //            }
+            //        }
+            //        dBox.load_dm_from_server = false;
+            //        $(d.dic_cmp_name).textbox("initValue", oldV + "," + record.DM);
+            //        $(d.dic_cmp_name).textbox("setText", oldT + "," + record.MC);
+            //        dBox.load_dm_from_server = true;
+            //    }
+            //    //dBox.load_dm_from_server = true;
+            //    $('#dialogDic').dialog("close");
+            //}
+        })
+    })
+   
+
+    var d = $('#dialogDic').dialog("options");
+    function btnsave() {
+        debugger
+        //$("#detailcheckbox").unbind();          
+        //$("#pdlist").val("");
+        //var items = $("input[name='PD']:checked");
+        //var items1 = document.getElementsByName("checkTheme");;
+        //var result = "";
+        //var checkrows = $("input[name='PD']:checked").length;
+        var rows = $('#cmpDialogDic_DG').datagrid('getChecked');  
+        var checkrows = rows.length;
+        var result = "";
+        var result1 = "";
+        for (var i = 0; i< checkrows; i++) {
+
+            if (i == 0) {
+                result = result + rows[i].DM;
+                result1 = result1 + rows[i].MC;
+            } else
+            {
+                result = result + "," + rows[i].DM;
+                result1 = result1 + "," + rows[i].MC;
+                //$("#pdlist").val(result);
+            } 
+        }
+        var dBox = $(d.dic_cmp_name).textbox("options");
+        dBox.load_dm_from_server = false;
+        //$(d.dic_cmp_name).textbox("initValue", oldV + "," + record.DM);
+        $(d.dic_cmp_name).textbox("setValue", result);
+        $(d.dic_cmp_name).textbox("setText", result1);
+        dBox.load_dm_from_server = true;
+        $('#dialogDic').dialog("close");
+    }
+</script>
+

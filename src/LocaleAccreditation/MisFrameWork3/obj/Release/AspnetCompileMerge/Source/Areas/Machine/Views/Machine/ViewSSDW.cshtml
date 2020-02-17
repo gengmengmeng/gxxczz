@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutViewSSDW.cshtml";
+}
+<script>
+
+    function cmpDialogDic_DG_init() {
+        $('#cmpDialogDic_DG').datagrid({
+            singleSelect: true,
+            pagination: true,
+            pageNumber: 1,//默认初始页
+            pageSize: 50,//每页显示的记录条数，默认为10 
+            pageList: [30, 50, 100],//可以设置每页记录条数的列
+            rownumbers: true,
+            remoteSort: true,
+            idField: 'DM',
+            checkOnSelect: false,
+            selectOnCheck: false,
+            height: "1000px",
+            width: "800px",
+            toolbar: "#toolbarDialogDic_DG",
+            @* __TIPS__ *: 以下同表格中显示的每列的配置信息 *@
+            columns: [[
+                //{
+                //    field: 'op11', title: '<input id=\"detailcheckbox\" type=\"checkbox\"  >', width: 30,
+                //    formatter: function (value, rec, rowIndex) {
+                //        return "<input type=\"checkbox\"  name=\"PD\" value=\"" + rec.DM + "\" >";
+                //}
+                //},
+                {
+                   
+                    field: 'ckbox', title:'选择',
+                    checkbox: 'true'
+                },
+                { field: 'DM', title: '代码', width: 130 },
+                { field: 'MC', title: '单位名称', width: 300 },
+            ]]
+        });
+    }
+</script>

@@ -1,0 +1,11 @@
+D:\a_working\通用项目\misframework-core\bin\x64\Debug\MisFrameWork.core.dll
+D:\a_working\通用项目\misframework-core\bin\x64\Debug\MisFrameWork.core.pdb
+D:\a_working\通用项目\misframework-core\bin\x64\Debug\log4net.dll
+D:\a_working\通用项目\misframework-core\bin\x64\Debug\Newtonsoft.Json.dll
+D:\a_working\通用项目\misframework-core\bin\x64\Debug\Spring.Core.dll
+D:\a_working\通用项目\misframework-core\bin\x64\Debug\System.Data.SQLite.dll
+D:\a_working\通用项目\misframework-core\bin\x64\Debug\Common.Logging.dll
+D:\a_working\通用项目\misframework-core\obj\x64\Debug\MisFrameWork.core.csproj.CoreCompileInputs.cache
+D:\a_working\通用项目\misframework-core\obj\x64\Debug\MisFrameWork.core.csproj.CopyComplete
+D:\a_working\通用项目\misframework-core\obj\x64\Debug\MisFrameWork.core.dll
+D:\a_working\通用项目\misframework-core\obj\x64\Debug\MisFrameWork.core.pdb

@@ -1,0 +1,14 @@
+D:\a_working\通用项目\misframework-core\obj\Debug\MisFrameWork.core.csprojAssemblyReference.cache
+D:\a_working\通用项目\misframework-core\obj\Debug\MisFrameWork.core.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\bin\AnyCpu\Debug\MisFrameWork.core.dll
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\bin\AnyCpu\Debug\MisFrameWork.core.pdb
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\bin\AnyCpu\Debug\log4net.dll
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\bin\AnyCpu\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\bin\AnyCpu\Debug\Spring.Core.dll
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\bin\AnyCpu\Debug\System.Data.SQLite.dll
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\bin\AnyCpu\Debug\Common.Logging.dll
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\obj\Debug\MisFrameWork.core.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\obj\Debug\MisFrameWork.core.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\obj\Debug\MisFrameWork.core.csproj.CopyComplete
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\obj\Debug\MisFrameWork.core.dll
+C:\Users\Administrator\Desktop\广西现场制证\广西现场制证-04-22\src\LocaleAccreditation\misframework-core\obj\Debug\MisFrameWork.core.pdb
